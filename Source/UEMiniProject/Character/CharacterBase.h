@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "InputActionValue.h"
 #include "CharacterBase.generated.h"
 
 UCLASS()
@@ -16,10 +17,21 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
-public:
-	
-protected:
-	UPROPERTY()
+	void Move(const FInputActionValue& Value);
+
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<class UCapsuleComponent> CapsuleComponent;
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<class UCameraComponent> CameraComponent;
+	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<USkeletalMeshComponent> SkeletalMeshComponent;
+	UPROPERTY()
+	TObjectPtr<class UInputMappingContext> DefaultInputContext;
+	UPROPERTY()
+	TObjectPtr<class UInputAction> MoveAction;
+
+	UPROPERTY(EditAnywhere, Category="Status")
+	float MoveSpeed;
 };
