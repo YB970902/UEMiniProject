@@ -13,5 +13,8 @@ UCLASS()
 class UEMINIPROJECT_API AMPPlayerController : public APlayerController
 {
 	GENERATED_BODY()
+public:
+	AMPPlayerController();
+private:
 	
 };

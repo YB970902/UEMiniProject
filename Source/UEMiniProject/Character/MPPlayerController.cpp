@@ -3,3 +3,7 @@
 
 #include "Character/MPPlayerController.h"
 
+AMPPlayerController::AMPPlayerController()
+{
+	
+}
